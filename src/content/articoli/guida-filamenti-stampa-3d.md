@@ -3,7 +3,6 @@ titolo: 'PLA, PETG, ABS, ASA e TPU: quale filamento usare'
 riassunto: Una guida per chi inizia ai filamenti più comuni, a cosa servono e come conservarli. Con quello che ho imparato usando PLA e PETG sulla mia P2S.
 data: 2026-10-21
 argomento: stampa-3d
-bozza: true
 ---
 
 Il filamento è il «filo» di plastica che la stampante scioglie e deposita strato dopo strato. Si compra in bobine,
