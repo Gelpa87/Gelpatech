@@ -19,9 +19,13 @@ Rispondi sempre in **italiano**. Il sito è pubblico: https://gelpa87.github.io/
 
 ## Regole
 
-- **Si scrive solo quello che Alessio ha provato davvero**: niente prove, numeri, stampe o prodotti inventati. Gli
-  articoli si scrivono con lui (idee, foto e appunti suoi) e li rilegge prima di pubblicarli: finché non l'ha fatto,
-  `bozza: true`.
+- **Esperienza di Alessio e informazioni generali si tengono distinte.** Le guide possono parlare anche di cose che
+  Alessio non ha provato (altri filamenti, dispositivi, tecniche), con informazioni verificate su fonti affidabili e
+  scritte come tali («in genere», «secondo il produttore»), mai in prima persona. In prima persona va solo quello che
+  Alessio ha fatto davvero: niente prove, numeri, stampe o prodotti inventati. Le recensioni restano solo di prodotti
+  che ha usato.
+- Gli articoli si scrivono con lui (idee, foto e appunti suoi) e li rilegge prima di pubblicarli: finché non l'ha
+  fatto, `bozza: true`.
 - **Il repo è pubblico**: mai dati della casa (codici, token, indirizzi, IP, nomi delle reti, posizione, il backup di
   Home Assistant). Le configurazioni di HA si mostrano ripulite.
 - Prima di fare commit: `npm run build` senza errori.

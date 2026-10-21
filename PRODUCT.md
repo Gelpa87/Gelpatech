@@ -42,12 +42,13 @@ vale la spesa.
 
 ## Evidence on Hand
 
-Nessun articolo, foto o recensione ancora. Non inventare prove, numeri, stampe o prodotti provati: si scrivono solo
-con il materiale di Alessio.
+La recensione della Bambu Lab P2S con AMS (in uso da giugno 2026, PLA e PETG). Non inventare prove, numeri, stampe o
+prodotti provati: l'esperienza in prima persona viene solo dal materiale di Alessio. Le informazioni generali nelle
+guide si verificano su fonti affidabili e si presentano come tali.
 
 ## Product Principles
 
-- Provato davvero, o non si scrive.
+- Quello che racconto in prima persona l'ho provato davvero; il resto è dichiarato come informazione generale.
 - Chiaro per chi inizia, preciso per chi ne sa.
 - Gli errori valgono quanto i successi.
 - Pro e contro sempre, anche sui prodotti che piacciono.
