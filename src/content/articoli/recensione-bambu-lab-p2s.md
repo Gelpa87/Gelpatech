@@ -52,6 +52,7 @@ Finora ho stampato in PLA e in PETG.
 
 ## Vale la spesa?
 
-Sì: la ricomprerei.
+Sì: la ricomprerei. La consiglio a chi inizia con la stampa 3D, come me, e a chi vuole una stampante «plug and
+play»: la monti, la accendi e stampi.
 
-<!-- DA COMPLETARE: a chi la consiglieresti e a chi no. -->
+<!-- DA COMPLETARE: a chi NON la consiglieresti? (facoltativo) -->
