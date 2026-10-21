@@ -22,9 +22,10 @@ La prima stampa è stata quella classica, la barchetta di prova (il «Benchy»),
 
 ## Da giugno a oggi
 
-Finora ho stampato in PLA e in PETG.
+Da giugno ci ho stampato un po' di tutto: oggetti per la casa, ricordi per neonati, supporti di vario tipo e pezzi
+di modellismo. I filamenti che ho usato finora sono PLA e PETG.
 
-<!-- DA COMPLETARE: cosa hai stampato, quanto la usi, quali programmi o app usi; differenze tra PLA e PETG che hai notato. -->
+<!-- DA COMPLETARE (facoltativo): quale programma o app usi; differenze tra PLA e PETG che hai notato. -->
 
 ## Pro e contro
 
