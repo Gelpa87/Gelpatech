@@ -13,7 +13,8 @@ Rispondi sempre in **italiano**. Il sito è pubblico: https://gelpa87.github.io/
   - `<aside class="intoppo">…</aside>` — cosa è andato storto e come si è risolto;
   - `<div class="pro-contro">…</div>` — pro e contro nelle recensioni.
 - Argomenti e colori dei nastri: `src/data/argomenti.ts`. Grafica: `DESIGN.md` e `src/styles/global.css`
-  (skill `impeccable`, contesto in `PRODUCT.md`).
+  (skill `impeccable` in `.agents/skills/impeccable`, contesto in `PRODUCT.md`, direzione in
+  `.impeccable/surfaces/`).
 - Prova: `npm install`, `npm run build`, `npm run preview` (http://localhost:4321/Gelpatech/).
 
 ## Regole
