@@ -63,9 +63,9 @@ la stampante sta stampando, l'AMS non riesce ad asciugarli, a meno di dargli un'
 <details class="tecnico">
 <summary>Bobine Bambu Lab e di altre marche nell'AMS</summary>
 
-Le bobine Bambu Lab hanno un'etichetta elettronica (RFID): l'AMS la legge e imposta da solo materiale, colore e
-profilo di stampa in Bambu Studio. Le bobine di altre marche, come Sunlu, funzionano lo stesso, ma tipo di filamento
-e colore vanno scelti a mano. Le bobine di cartone, che alcune marche usano, nell'AMS possono dare problemi: in quel
+Le bobine Bambu Lab hanno un'etichetta elettronica (RFID): l'AMS la legge, imposta da solo materiale, colore e
+profilo di stampa in Bambu Studio e stima quanto filamento resta sulla bobina. Le bobine di altre marche, come
+Sunlu, funzionano lo stesso, ma tipo di filamento e colore vanno scelti a mano e il residuo non viene tenuto. Le bobine di cartone, che alcune marche usano, nell'AMS possono dare problemi: in quel
 caso si può stampare un adattatore da mettere attorno alla bobina.
 
 </details>
@@ -75,3 +75,8 @@ caso si può stampare un adattatore da mettere attorno alla bobina.
 Se hai appena comprato la tua prima stampante, parti dal PLA: perdona quasi tutto e ti permette di imparare senza
 sprecare troppo. Quando ti serve un pezzo più resistente, o che sta fuori casa, passa al PETG. ABS, ASA e TPU
 lasciali per quando avrai un motivo preciso per usarli.
+
+E se hai una Bambu Lab con l'AMS, il mio consiglio è di usare le bobine Bambu Lab. Non perché le altre non vadano:
+le Sunlu, per esempio, le uso anch'io. Ma le Bambu Lab si integrano con tutto il resto: l'AMS legge l'etichetta della
+bobina, riconosce da solo il filamento e tiene il conto di quanto ne è rimasto, così vedi prima di partire se basta
+per la stampa.
