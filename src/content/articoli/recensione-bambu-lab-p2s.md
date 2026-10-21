@@ -6,10 +6,9 @@ argomento: recensioni
 bozza: true
 ---
 
-A giugno ho comprato una Bambu Lab P2S insieme all'AMS, il sistema che carica i filamenti in automatico. Non l'ho
-scelta a caso: prima di comprarla ho guardato parecchie recensioni. L'ho presa direttamente dal sito di Bambu Lab.
-
-<!-- DA COMPLETARE: quanto l'hai pagata; se è la tua prima stampante. -->
+A giugno ho comprato una Bambu Lab P2S insieme all'AMS, il sistema che carica i filamenti in automatico. È la mia
+prima stampante 3D. Non l'ho scelta a caso: prima di comprarla ho guardato parecchie recensioni. L'ho presa
+direttamente dal sito di Bambu Lab e, con l'AMS, l'ho pagata circa 730 euro.
 
 ## Montaggio e prima accensione
 
