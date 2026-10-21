@@ -23,7 +23,9 @@ La prima stampa è stata quella classica, la barchetta di prova (il «Benchy»).
 
 ## Da giugno a oggi
 
-<!-- DA COMPLETARE: cosa hai stampato, con quali filamenti, quanto la usi, quali programmi o app usi. -->
+Finora ho stampato in PLA e in PETG.
+
+<!-- DA COMPLETARE: cosa hai stampato, quanto la usi, quali programmi o app usi; differenze tra PLA e PETG che hai notato. -->
 
 ## Pro e contro
 
