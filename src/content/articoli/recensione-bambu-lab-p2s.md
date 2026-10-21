@@ -14,18 +14,12 @@ direttamente dal sito di Bambu Lab e, con l'AMS, l'ho pagata circa 730 euro.
 
 Il montaggio è semplice: in meno di mezz'ora era pronta.
 
-<!-- DA COMPLETARE: c'è stato un passaggio meno chiaro degli altri? Ti ha guidato lo schermo, l'app o il foglio delle istruzioni? -->
-
 La prima stampa è stata quella classica, la barchetta di prova (il «Benchy»), ed è venuta perfetta al primo colpo.
-
-<!-- DA COMPLETARE: foto della barchetta. -->
 
 ## Da giugno a oggi
 
 Da giugno ci ho stampato un po' di tutto: oggetti per la casa, ricordi per neonati, supporti di vario tipo e pezzi
 di modellismo. I filamenti che ho usato finora sono PLA e PETG.
-
-<!-- DA COMPLETARE (facoltativo): quale programma o app usi; differenze tra PLA e PETG che hai notato. -->
 
 ## Pro e contro
 
@@ -57,4 +51,3 @@ di modellismo. I filamenti che ho usato finora sono PLA e PETG.
 Sì: la ricomprerei. La consiglio a chi inizia con la stampa 3D, come me, e a chi vuole una stampante «plug and
 play»: la monti, la accendi e stampi.
 
-<!-- DA COMPLETARE: a chi NON la consiglieresti? (facoltativo) -->
