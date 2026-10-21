@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../utils';
+---
+<Base titolo="Chi sono" descrizione="Chi scrive GelpaTech e come nasce ogni articolo.">
+  <div class="contenitore">
+    <h1>Chi sono</h1>
+    <div class="prosa">
+      <p>
+        Sono Alessio. A casa ho una stampante 3D Bambu Lab P2S e un Home Assistant che tiene insieme luci,
+        tapparelle, serratura, allarme, elettrodomestici e un paio di orologi a LED. Su GelpaTech racconto
+        quello che provo: cosa funziona, cosa no e come l'ho sistemato.
+      </p>
+      <h2>Come nasce un articolo</h2>
+      <p>
+        Scrivo solo di cose che ho usato davvero. Molti articoli li preparo insieme a Claude, l'intelligenza
+        artificiale di Anthropic: io porto le prove, le foto e gli appunti, lui mi aiuta a metterli in ordine, e
+        ogni testo lo rileggo e lo correggo io prima che esca.
+      </p>
+      <h2>Per chi è</h2>
+      <p>
+        Per chi è curioso e vuole cominciare, e per chi ha già una stampante o un Home Assistant e cerca i
+        dettagli. Le parti più tecniche stanno nei riquadri «Per chi ne sa di più»: chi inizia può saltarle.
+      </p>
+      <p><a href={url()}>Torna agli articoli</a></p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  h1 {
+    font-size: clamp(2rem, 1.5rem + 2vw, 2.8rem);
+    margin: 0.5rem 0 1.5rem;
+  }
+</style>

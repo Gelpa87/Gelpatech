@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import Cassettiera from '../components/Cassettiera.astro';
+import ElencoArticoli from '../components/ElencoArticoli.astro';
+import { articoliPubblicati } from '../utils';
+import { contaPerArgomento } from '../conteggi';
+
+const articoli = await articoliPubblicati();
+---
+<Base>
+  <div class="contenitore">
+    <section class="apertura" aria-labelledby="titolo-home">
+      <h1 id="titolo-home">Tecnologia provata a casa mia, errori compresi.</h1>
+      <p class="sottotitolo">
+        Stampa 3D, domotica e intelligenza artificiale, raccontate da chi le usa ogni giorno. Spiegate per chi
+        inizia, con i dettagli per chi ne sa già.
+      </p>
+    </section>
+    <Cassettiera conteggi={contaPerArgomento(articoli)} />
+    <section class="ultimi" aria-labelledby="titolo-ultimi">
+      <h2 id="titolo-ultimi">Ultimi articoli</h2>
+      <ElencoArticoli articoli={articoli} />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .apertura {
+    max-width: 46rem;
+    margin-bottom: 2rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 1.3rem + 2.6vw, 3.1rem);
+    margin: 0.5rem 0 0.8rem;
+  }
+  .sottotitolo {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--inchiostro-2);
+  }
+  .ultimi {
+    margin-top: 3rem;
+  }
+  .ultimi h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--inchiostro-2);
+    margin: 0;
+  }
+</style>

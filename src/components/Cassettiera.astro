@@ -1,0 +1,116 @@
+---
+import { argomenti, ordineArgomenti, type Argomento } from '../data/argomenti';
+import { url } from '../utils';
+
+interface Props {
+  conteggi: Record<Argomento, number>;
+  attivo?: Argomento;
+}
+const { conteggi, attivo } = Astro.props;
+const quanti = (n: number) => (n === 0 ? 'vuoto' : n === 1 ? '1 articolo' : `${n} articoli`);
+---
+<nav class="cassettiera" aria-label="Argomenti">
+  <ul>
+    {ordineArgomenti.map((chiave) => {
+      const a = argomenti[chiave];
+      return (
+        <li>
+          <a
+            class="cassetto"
+            href={url(`argomenti/${chiave}`)}
+            aria-current={attivo === chiave ? 'page' : undefined}
+          >
+            <span class="fessura">
+              <span class="nastro" data-colore={a.nastro}>{a.nome}</span>
+            </span>
+            <span class="quanti">{quanti(conteggi[chiave])}</span>
+            <span class="maniglia" aria-hidden="true" />
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</nav>
+
+<style>
+  .cassettiera {
+    background: var(--plastica);
+    border-radius: 10px;
+    padding: 0.75rem;
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.35),
+      0 1px 2px rgb(0 0 0 / 0.12),
+      0 8px 24px -12px rgb(0 0 0 / 0.25);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+  @media (max-width: 52rem) {
+    ul {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .cassetto {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: 0.55rem;
+    padding: 1rem 0.75rem 1.6rem;
+    background: var(--cassetto);
+    border-radius: 6px;
+    color: var(--inchiostro-2);
+    text-decoration: none;
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.4),
+      inset 0 -2px 0 rgb(0 0 0 / 0.06),
+      0 1px 1px rgb(0 0 0 / 0.14);
+    transition:
+      transform 0.45s var(--esce),
+      box-shadow 0.45s var(--esce);
+  }
+  /* il cassetto si sfila un poco verso chi guarda */
+  .cassetto:hover,
+  .cassetto:focus-visible {
+    transform: translateY(3px) scale(1.015);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.4),
+      inset 0 -2px 0 rgb(0 0 0 / 0.06),
+      0 10px 18px -8px rgb(0 0 0 / 0.35);
+  }
+  .cassetto:active {
+    transform: translateY(5px) scale(1.02);
+    transition-duration: 0.15s;
+  }
+  .cassetto[aria-current='page'] {
+    outline: 2px solid var(--inchiostro);
+    outline-offset: 2px;
+  }
+  .fessura {
+    display: block;
+    padding: 0.3rem 0.4rem;
+    background: var(--fessura);
+    border-radius: 3px;
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.3);
+  }
+  .quanti {
+    font-family: var(--titoli);
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .maniglia {
+    position: absolute;
+    bottom: 0.55rem;
+    left: 50%;
+    width: 2.6rem;
+    height: 0.4rem;
+    translate: -50% 0;
+    border-radius: 999px;
+    background: var(--fessura);
+    box-shadow: inset 0 1px 1.5px rgb(0 0 0 / 0.35);
+  }
+</style>

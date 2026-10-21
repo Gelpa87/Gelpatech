@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import Cassettiera from '../../components/Cassettiera.astro';
+import { argomenti, ordineArgomenti } from '../../data/argomenti';
+import { articoliPubblicati, url } from '../../utils';
+import { contaPerArgomento } from '../../conteggi';
+
+const articoli = await articoliPubblicati();
+---
+<Base titolo="Argomenti" descrizione="Gli argomenti di GelpaTech: stampa 3D, domotica, AI e recensioni.">
+  <div class="contenitore">
+    <h1>Argomenti</h1>
+    <Cassettiera conteggi={contaPerArgomento(articoli)} />
+    <dl>
+      {ordineArgomenti.map((k) => (
+        <div>
+          <dt><a href={url(`argomenti/${k}`)}>{argomenti[k].nome}</a></dt>
+          <dd>{argomenti[k].descrizione}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</Base>
+
+<style>
+  h1 {
+    font-size: clamp(2rem, 1.5rem + 2vw, 2.8rem);
+    margin: 0.5rem 0 1.5rem;
+  }
+  dl {
+    max-width: var(--colonna);
+    margin: 2.5rem 0 0;
+  }
+  dl div + div {
+    margin-top: 1.3rem;
+  }
+  dt {
+    font-family: var(--titoli);
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  dd {
+    margin: 0.2rem 0 0;
+    color: var(--inchiostro-2);
+  }
+</style>

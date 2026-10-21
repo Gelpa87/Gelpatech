@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../utils';
+---
+<Base titolo="Pagina non trovata">
+  <div class="contenitore prosa">
+    <span class="nastro" data-colore="rosso">Cassetto vuoto</span>
+    <h1>Questa pagina non c'è.</h1>
+    <p>Forse l'indirizzo è sbagliato, o l'articolo ha cambiato nome. <a href={url()}>Torna agli articoli</a>.</p>
+  </div>
+</Base>
+
+<style>
+  h1 {
+    font-size: clamp(2rem, 1.5rem + 2vw, 2.8rem);
+    margin: 1rem 0 0.6rem;
+  }
+</style>

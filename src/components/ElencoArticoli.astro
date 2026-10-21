@@ -1,0 +1,81 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { argomenti } from '../data/argomenti';
+import { url, dataLunga } from '../utils';
+
+interface Props {
+  articoli: CollectionEntry<'articoli'>[];
+  vuoto?: string;
+}
+const { articoli, vuoto = 'Il primo articolo arriva presto.' } = Astro.props;
+---
+{articoli.length === 0 ? (
+  <p class="vuoto">{vuoto}</p>
+) : (
+  <ol class="elenco">
+    {articoli.map((a) => {
+      const arg = argomenti[a.data.argomento];
+      return (
+        <li>
+          <article>
+            <div class="meta">
+              <span class="nastro piccolo" data-colore={arg.nastro}>{arg.nome}</span>
+              <time datetime={a.data.data.toISOString()}>{dataLunga(a.data.data)}</time>
+              {a.data.bozza && <span class="bozza">bozza</span>}
+            </div>
+            <h2><a href={url(`articoli/${a.id}`)}>{a.data.titolo}</a></h2>
+            <p>{a.data.riassunto}</p>
+          </article>
+        </li>
+      );
+    })}
+  </ol>
+)}
+
+<style>
+  .elenco {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: var(--colonna);
+  }
+  li + li {
+    border-top: 1px solid var(--linea);
+  }
+  article {
+    padding-block: 1.6rem;
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-family: var(--titoli);
+    font-size: 0.85rem;
+    color: var(--inchiostro-2);
+  }
+  h2 {
+    font-size: 1.45rem;
+    margin: 0.7rem 0 0.4rem;
+  }
+  h2 a {
+    color: var(--inchiostro);
+    text-decoration: none;
+  }
+  h2 a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+  }
+  p {
+    margin: 0;
+    color: var(--inchiostro-2);
+  }
+  .bozza {
+    font-weight: 700;
+    color: var(--nastro-rosso);
+  }
+  .vuoto {
+    color: var(--inchiostro-2);
+    font-style: italic;
+  }
+</style>

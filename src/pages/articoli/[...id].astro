@@ -1,0 +1,111 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { argomenti } from '../../data/argomenti';
+import { articoliPubblicati, url, dataLunga, minutiLettura } from '../../utils';
+
+export async function getStaticPaths() {
+  const articoli = await articoliPubblicati();
+  return articoli.map((articolo, i) => ({
+    params: { id: articolo.id },
+    props: { articolo, piuNuovo: articoli[i - 1], piuVecchio: articoli[i + 1] },
+  }));
+}
+
+const { articolo, piuNuovo, piuVecchio } = Astro.props;
+const { Content } = await render(articolo);
+const arg = argomenti[articolo.data.argomento];
+const minuti = minutiLettura(articolo.body);
+---
+<Base titolo={articolo.data.titolo} descrizione={articolo.data.riassunto} tipo="article">
+  <article class="contenitore">
+    <header class="intestazione">
+      <a class="nastro" data-colore={arg.nastro} href={url(`argomenti/${articolo.data.argomento}`)}>{arg.nome}</a>
+      <h1>{articolo.data.titolo}</h1>
+      <p class="riassunto">{articolo.data.riassunto}</p>
+      <p class="meta">
+        <time datetime={articolo.data.data.toISOString()}>{dataLunga(articolo.data.data)}</time>
+        {articolo.data.aggiornato && (
+          <span>aggiornato il <time datetime={articolo.data.aggiornato.toISOString()}>{dataLunga(articolo.data.aggiornato)}</time></span>
+        )}
+        <span>{minuti} min di lettura</span>
+      </p>
+    </header>
+    <div class="prosa">
+      <Content />
+    </div>
+    {(piuNuovo || piuVecchio) && (
+      <nav class="altri" aria-label="Altri articoli">
+        {piuVecchio && (
+          <a href={url(`articoli/${piuVecchio.id}`)} rel="prev">
+            <span>Precedente</span>
+            {piuVecchio.data.titolo}
+          </a>
+        )}
+        {piuNuovo && (
+          <a href={url(`articoli/${piuNuovo.id}`)} rel="next" class="dopo">
+            <span>Successivo</span>
+            {piuNuovo.data.titolo}
+          </a>
+        )}
+      </nav>
+    )}
+  </article>
+</Base>
+
+<style>
+  .intestazione {
+    max-width: var(--colonna);
+    margin-bottom: 2.5rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+    margin: 1rem 0 0.7rem;
+  }
+  .riassunto {
+    font-size: 1.25rem;
+    color: var(--inchiostro-2);
+    margin: 0 0 1rem;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.2rem;
+    margin: 0;
+    font-family: var(--titoli);
+    font-size: 0.88rem;
+    color: var(--inchiostro-2);
+    padding-top: 1rem;
+    border-top: 1px solid var(--linea);
+  }
+  .altri {
+    max-width: var(--colonna);
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--linea);
+  }
+  .altri a {
+    font-family: var(--titoli);
+    font-weight: 700;
+    color: var(--inchiostro);
+    text-decoration: none;
+    line-height: 1.3;
+  }
+  .altri a:hover {
+    text-decoration: underline;
+  }
+  .altri span {
+    display: block;
+    font-weight: 500;
+    font-size: 0.82rem;
+    color: var(--inchiostro-2);
+    margin-bottom: 0.3rem;
+  }
+  .altri .dopo {
+    grid-column: 2;
+    text-align: right;
+  }
+</style>

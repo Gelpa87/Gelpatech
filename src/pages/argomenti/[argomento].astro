@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/Base.astro';
+import Cassettiera from '../../components/Cassettiera.astro';
+import ElencoArticoli from '../../components/ElencoArticoli.astro';
+import { argomenti, ordineArgomenti, type Argomento } from '../../data/argomenti';
+import { articoliPubblicati } from '../../utils';
+import { contaPerArgomento } from '../../conteggi';
+
+export function getStaticPaths() {
+  return ordineArgomenti.map((argomento) => ({ params: { argomento } }));
+}
+
+const chiave = Astro.params.argomento as Argomento;
+const arg = argomenti[chiave];
+const tutti = await articoliPubblicati();
+const articoli = tutti.filter((a) => a.data.argomento === chiave);
+---
+<Base titolo={arg.nome} descrizione={arg.descrizione}>
+  <div class="contenitore">
+    <Cassettiera conteggi={contaPerArgomento(tutti)} attivo={chiave} />
+    <header class="intestazione">
+      <h1>{arg.nome}</h1>
+      <p>{arg.descrizione}</p>
+    </header>
+    <ElencoArticoli articoli={articoli} vuoto="Cassetto ancora vuoto: il primo articolo arriva presto." />
+  </div>
+</Base>
+
+<style>
+  .intestazione {
+    max-width: var(--colonna);
+    margin: 2.5rem 0 0.5rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 1.5rem + 2vw, 2.8rem);
+    margin: 0 0 0.5rem;
+  }
+  .intestazione p {
+    margin: 0;
+    color: var(--inchiostro-2);
+  }
+</style>

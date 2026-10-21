@@ -1,0 +1,373 @@
+/* GelpaTech — la cassettiera d'officina.
+   Cornice: plastica della cassettiera e nastri Dymo. Colonna di lettura: calma. */
+
+:root {
+  color-scheme: light;
+  --fondo: #eef0ef;
+  --plastica: #d6dad9;
+  --plastica-scura: #c3c8c7;
+  --cassetto: #e4e7e6;
+  --fessura: #b9bfbe;
+  --inchiostro: #17191a;
+  --inchiostro-2: #485053;
+  --linea: #c9cecd;
+  --nota: #e3e7e6;
+
+  --nastro-rosso: #b3122a;
+  --nastro-blu: #1d4e9e;
+  --nastro-verde: #1c6b3f;
+  --nastro-nero: #1c1c1e;
+  --rilievo: #f3f3f0;
+
+  --link: #1d4e9e;
+  --fuoco: #1d4e9e;
+
+  --testo: 'Source Serif 4 Variable', 'Iowan Old Style', Georgia, serif;
+  --titoli: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+  --nastro: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --codice: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --colonna: 68ch;
+  --largo: 72rem;
+  --esce: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --fondo: #141617;
+    --plastica: #1f2324;
+    --plastica-scura: #181b1c;
+    --cassetto: #2a2f31;
+    --fessura: #121415;
+    --inchiostro: #e6e9e8;
+    --inchiostro-2: #a4acae;
+    --linea: #343a3c;
+    --nota: #1d2122;
+    --nastro-nero: #0b0b0c;
+    --link: #8fb1ee;
+    --fuoco: #8fb1ee;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--plastica-scura) var(--fondo);
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--inchiostro);
+  font-family: var(--testo);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > main {
+  flex: 1;
+}
+
+::selection {
+  background: var(--nastro-rosso);
+  color: var(--rilievo);
+}
+
+:focus-visible {
+  outline: 2px solid var(--fuoco);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+a {
+  color: var(--link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--titoli);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.salta {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+}
+.salta:focus {
+  top: 1rem;
+}
+
+.contenitore {
+  width: min(100% - 2rem, var(--largo));
+  margin-inline: auto;
+}
+
+/* ---- Nastro Dymo ---- */
+
+.nastro {
+  --colore: var(--nastro-nero);
+  display: inline-block;
+  font-family: var(--nastro);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rilievo);
+  background: var(--colore);
+  padding: 0.38em 0.75em 0.34em 0.85em;
+  border-radius: 2px;
+  /* lettere premute dal punzone: luce sopra, ombra sotto */
+  text-shadow:
+    0 -1px 0 rgb(0 0 0 / 0.45),
+    0 1px 0 rgb(255 255 255 / 0.18);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.14),
+    inset 0 -1px 0 rgb(0 0 0 / 0.3),
+    0 1px 1.5px rgb(0 0 0 / 0.25);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.nastro[data-colore='rosso'] { --colore: var(--nastro-rosso); }
+.nastro[data-colore='blu'] { --colore: var(--nastro-blu); }
+.nastro[data-colore='verde'] { --colore: var(--nastro-verde); }
+.nastro[data-colore='nero'] { --colore: var(--nastro-nero); }
+.nastro.piccolo {
+  font-size: 0.78rem;
+}
+a.nastro:hover {
+  filter: brightness(1.12);
+}
+
+/* ---- Colonna di lettura ---- */
+
+.prosa {
+  max-width: var(--colonna);
+}
+.prosa :where(p, ul, ol, pre, blockquote, figure, table, details, aside) {
+  margin-block: 0;
+}
+.prosa > * + * {
+  margin-top: 1.1em;
+}
+.prosa p,
+.prosa li {
+  hyphens: auto;
+}
+.prosa h2 {
+  font-size: 1.6rem;
+  margin: 2.4em 0 0.6em;
+}
+.prosa h3 {
+  font-size: 1.25rem;
+  margin: 2em 0 0.5em;
+}
+.prosa h2 + *,
+.prosa h3 + * {
+  margin-top: 0;
+}
+.prosa ul,
+.prosa ol {
+  padding-left: 1.3em;
+}
+.prosa li + li {
+  margin-top: 0.35em;
+}
+.prosa blockquote {
+  margin-inline: 0;
+  padding-left: 1.1em;
+  border-left: 1px solid var(--inchiostro-2);
+  color: var(--inchiostro-2);
+  font-style: italic;
+}
+.prosa img,
+.prosa figure {
+  margin-inline: 0;
+  border-radius: 4px;
+}
+.prosa figcaption {
+  font-family: var(--titoli);
+  font-size: 0.85rem;
+  color: var(--inchiostro-2);
+  margin-top: 0.5em;
+}
+.prosa hr {
+  border: 0;
+  border-top: 1px solid var(--linea);
+  margin: 2.5em 0;
+}
+
+.prosa code {
+  font-family: var(--codice);
+  font-size: 0.88em;
+  background: var(--nota);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+.prosa pre {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  padding: 1rem 1.1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid var(--linea);
+}
+.prosa pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}
+
+.prosa table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--titoli);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+.prosa th,
+.prosa td {
+  text-align: left;
+  padding: 0.5em 0.7em;
+  border-bottom: 1px solid var(--linea);
+  vertical-align: top;
+}
+.prosa th {
+  font-weight: 700;
+  border-bottom-color: var(--inchiostro-2);
+}
+.tabella {
+  overflow-x: auto;
+}
+
+/* Dettagli tecnici: chi inizia li salta, chi ne sa li apre. */
+.prosa details.tecnico {
+  background: var(--nota);
+  border-radius: 6px;
+  padding: 0.9rem 1.1rem;
+}
+.prosa details.tecnico > summary {
+  cursor: pointer;
+  font-family: var(--titoli);
+  font-weight: 700;
+  font-size: 0.98rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.prosa details.tecnico > summary::-webkit-details-marker {
+  display: none;
+}
+.prosa details.tecnico > summary::before {
+  content: 'Per chi ne sa di più';
+  font-family: var(--nastro);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rilievo);
+  background: var(--nastro-blu);
+  padding: 0.38em 0.7em 0.34em 0.8em;
+  border-radius: 2px;
+  text-shadow: 0 -1px 0 rgb(0 0 0 / 0.45);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.prosa details.tecnico > summary::after {
+  content: '';
+  margin-left: auto;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.3s var(--esce);
+}
+.prosa details.tecnico[open] > summary::after {
+  transform: rotate(225deg) translateY(-2px);
+}
+.prosa details.tecnico[open] > summary {
+  margin-bottom: 0.8rem;
+}
+
+/* Cosa è andato storto: gli errori valgono quanto i successi. */
+.prosa aside.intoppo {
+  background: color-mix(in oklab, var(--nastro-rosso) 9%, var(--fondo));
+  border-radius: 6px;
+  padding: 0.9rem 1.1rem 1rem;
+}
+.prosa aside.intoppo::before {
+  content: 'Cosa è andato storto';
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  font-family: var(--nastro);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rilievo);
+  background: var(--nastro-rosso);
+  padding: 0.38em 0.7em 0.34em 0.8em;
+  border-radius: 2px;
+  text-shadow: 0 -1px 0 rgb(0 0 0 / 0.45);
+}
+.prosa aside.intoppo > :first-child {
+  margin-top: 0;
+}
+.prosa aside.intoppo > * + * {
+  margin-top: 0.8em;
+}
+
+/* Pro e contro delle recensioni */
+.prosa .pro-contro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem 2rem;
+}
+.prosa .pro-contro h3 {
+  margin-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

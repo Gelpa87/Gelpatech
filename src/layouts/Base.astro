@@ -1,0 +1,138 @@
+---
+import '@fontsource-variable/source-serif-4';
+import '@fontsource-variable/source-serif-4/wght-italic.css';
+import '@fontsource-variable/archivo';
+import '@fontsource/barlow-condensed/600.css';
+import '../styles/global.css';
+import { url } from '../utils';
+
+interface Props {
+  titolo?: string;
+  descrizione?: string;
+  tipo?: 'website' | 'article';
+}
+const {
+  titolo,
+  descrizione = 'Stampa 3D, domotica e AI provate davvero a casa: anche quello che è andato storto.',
+  tipo = 'website',
+} = Astro.props;
+const titoloPagina = titolo ? `${titolo} · GelpaTech` : 'GelpaTech';
+const canonico = new URL(Astro.url.pathname, Astro.site);
+const voci = [
+  { nome: 'Articoli', href: url() },
+  { nome: 'Argomenti', href: url('argomenti') },
+  { nome: 'Chi sono', href: url('chi-sono') },
+];
+const qui = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titoloPagina}</title>
+    <meta name="description" content={descrizione} />
+    <link rel="canonical" href={canonico} />
+    <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="GelpaTech" href={url('rss.xml')} />
+    <link rel="sitemap" href={url('sitemap-index.xml')} />
+    <meta name="theme-color" content="#d6dad9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1f2324" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content={tipo} />
+    <meta property="og:title" content={titoloPagina} />
+    <meta property="og:description" content={descrizione} />
+    <meta property="og:url" content={canonico} />
+    <meta property="og:locale" content="it_IT" />
+  </head>
+  <body>
+    <a class="salta nastro" href="#contenuto">Vai al contenuto</a>
+    <header class="testata">
+      <div class="contenitore riga">
+        <a class="marchio" href={url()} aria-label="GelpaTech, pagina iniziale">
+          <span class="nastro">GelpaTech</span>
+        </a>
+        <nav aria-label="Menu principale">
+          <ul>
+            {voci.map((v) => (
+              <li>
+                <a
+                  href={v.href}
+                  aria-current={qui === v.href || (v.href !== url() && qui.startsWith(v.href)) ? 'page' : undefined}
+                >
+                  {v.nome}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="contenuto">
+      <slot />
+    </main>
+    <footer class="piede">
+      <div class="contenitore riga">
+        <span class="nastro piccolo">GelpaTech</span>
+        <p>Tutto provato a casa mia, errori compresi. <a href={url('rss.xml')}>Feed RSS</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .testata {
+    background: var(--plastica);
+    box-shadow: inset 0 -1px 0 var(--plastica-scura);
+  }
+  .riga {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 1.5rem;
+    flex-wrap: wrap;
+    padding-block: 0.9rem;
+  }
+  .marchio {
+    text-decoration: none;
+  }
+  .marchio .nastro {
+    font-size: 1.35rem;
+    letter-spacing: 0.2em;
+    transform: rotate(-1deg);
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.25rem 1.25rem;
+    flex-wrap: wrap;
+  }
+  nav a {
+    font-family: var(--titoli);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--inchiostro);
+    text-decoration: none;
+    padding-block: 0.3rem;
+    border-bottom: 2px solid transparent;
+  }
+  nav a:hover {
+    border-bottom-color: var(--inchiostro-2);
+  }
+  nav a[aria-current='page'] {
+    border-bottom-color: var(--inchiostro);
+  }
+  main {
+    padding-block: 2rem 4rem;
+  }
+  .piede {
+    background: var(--plastica);
+    color: var(--inchiostro-2);
+    font-family: var(--titoli);
+    font-size: 0.88rem;
+  }
+  .piede p {
+    margin: 0;
+  }
+</style>
