@@ -1,6 +1,6 @@
 # GelpaTech — blog di tecnologia di Alessio
 
-Rispondi sempre in **italiano**. Il sito è pubblico: https://gelpa87.github.io/gelpatech/
+Rispondi sempre in **italiano**. Il sito è pubblico: https://gelpa87.github.io/Gelpatech/
 
 ## Com'è fatto
 
@@ -14,7 +14,7 @@ Rispondi sempre in **italiano**. Il sito è pubblico: https://gelpa87.github.io/
   - `<div class="pro-contro">…</div>` — pro e contro nelle recensioni.
 - Argomenti e colori dei nastri: `src/data/argomenti.ts`. Grafica: `DESIGN.md` e `src/styles/global.css`
   (skill `impeccable`, contesto in `PRODUCT.md`).
-- Prova: `npm install`, `npm run build`, `npm run preview` (http://localhost:4321/gelpatech/).
+- Prova: `npm install`, `npm run build`, `npm run preview` (http://localhost:4321/Gelpatech/).
 
 ## Regole
 
