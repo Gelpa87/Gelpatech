@@ -1,6 +1,6 @@
 ---
 titolo: 'Bambu Lab P2S con AMS: la mia recensione'
-riassunto: L'ho presa a giugno con l'AMS. Facile da montare, da usare e da tenere in ordine, e per ora non le ho trovato un difetto.
+riassunto: La mia prima stampante 3D, presa a giugno con l'AMS. Facile da montare, da usare e da tenere in ordine; i difetti sono gli scarti al cambio colore e l'asciugatura dell'AMS.
 data: 2026-10-21
 argomento: recensioni
 bozza: true
@@ -45,7 +45,8 @@ di modellismo. I filamenti che ho usato finora sono PLA e PETG.
 
 ### Contro
 
-- Per ora nessuno.
+- Quando passa da un filamento all'altro butta via parecchio materiale.
+- Mentre stampa, l'AMS non riesce ad asciugare i filamenti, a meno di dargli un'alimentazione a parte.
 
 </div>
 
