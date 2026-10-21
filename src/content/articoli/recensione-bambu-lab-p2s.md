@@ -3,7 +3,6 @@ titolo: 'Bambu Lab P2S: com''è andata con la mia prima stampante 3D'
 riassunto: La uso da giugno, insieme all'AMS. Facile da montare e da usare anche per chi inizia, con due difetti che riguardano i filamenti.
 data: 2026-10-21
 argomento: recensioni
-bozza: true
 ---
 
 La P2S è la mia prima stampante 3D. Prima di sceglierla ho guardato parecchie recensioni, e alla fine a giugno l'ho
