@@ -17,9 +17,9 @@ Il montaggio è semplice: in meno di mezz'ora era pronta.
 
 <!-- DA COMPLETARE: c'è stato un passaggio meno chiaro degli altri? Ti ha guidato lo schermo, l'app o il foglio delle istruzioni? -->
 
-La prima stampa è stata quella classica, la barchetta di prova (il «Benchy»).
+La prima stampa è stata quella classica, la barchetta di prova (il «Benchy»), ed è venuta perfetta al primo colpo.
 
-<!-- DA COMPLETARE: com'è venuta la barchetta? Una foto qui starebbe bene. -->
+<!-- DA COMPLETARE: foto della barchetta. -->
 
 ## Da giugno a oggi
 
