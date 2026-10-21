@@ -7,9 +7,9 @@ bozza: true
 ---
 
 A giugno ho comprato una Bambu Lab P2S insieme all'AMS, il sistema che carica i filamenti in automatico. Non l'ho
-scelta a caso: prima di comprarla ho guardato parecchie recensioni.
+scelta a caso: prima di comprarla ho guardato parecchie recensioni. L'ho presa direttamente dal sito di Bambu Lab.
 
-<!-- DA COMPLETARE: dove l'hai presa e quanto l'hai pagata; se è la tua prima stampante. -->
+<!-- DA COMPLETARE: quanto l'hai pagata; se è la tua prima stampante. -->
 
 ## Montaggio e prima accensione
 
