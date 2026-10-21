@@ -50,8 +50,8 @@ dedicato come Home Assistant.
 
 ## Perché io uso Home Assistant
 
-A casa mia il cervello è [Home Assistant](https://www.home-assistant.io), un programma gratuito e open source che
-gira su un piccolo computer sempre acceso dentro casa. Collega tra loro dispositivi Zigbee e Matter, gli
+A casa mia il cervello è [Home Assistant](https://www.home-assistant.io), un programma gratuito e open source. Io
+lo faccio girare su un mini PC, sempre acceso, dentro casa. Collega tra loro dispositivi Zigbee e Matter, gli
 elettrodomestici e anche gli orologi Awtrix che uso per mostrare avvisi e informazioni.
 
 I motivi per cui lo consiglio, in generale, sono tre:
