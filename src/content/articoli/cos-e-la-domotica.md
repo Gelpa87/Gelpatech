@@ -3,7 +3,6 @@ titolo: 'Domotica: cos''è, come funziona e a cosa serve'
 riassunto: Un'introduzione per chi parte da zero. Cosa vuol dire avere una casa «smart», quali pezzi servono e come li metto insieme io con Home Assistant.
 data: 2026-10-21
 argomento: domotica
-bozza: true
 ---
 
 Domotica vuol dire, semplicemente, una casa in cui luci, prese, tapparelle, riscaldamento ed elettrodomestici si
